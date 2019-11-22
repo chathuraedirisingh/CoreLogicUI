@@ -6,48 +6,52 @@ import BlankScreen from "../BlankScreen";
 import TabNavigator from "../TabNavigator";
 import colors from "../../styles/colors";
 import Settings from "../Tabs/Settings";
+import { Icon } from "react-native-vector-icons/AntDesign";
+import { Dimensions } from "react-native";
+import CustomSidebarMenu from "./CustomDrawer";
 
 const DrawerNavigator = createDrawerNavigator(
     {
         Scan: {
             screen: TabNavigator,
             navigationOptions:{
-                title:'Scan ID'
+                drawerLabel:'Scan ID',
+                // drawerIcon:()=><Icon name="home" size={27} color={tintColor} />
             }
             
         },
         DA: {
             screen: Settings,
             navigationOptions:{
-                title:'Digital Application'
+                drawerLabel:'Digital Application'
             }
             
         },
         CI: {
             screen: BlankScreen,
             navigationOptions:{
-                title:'Credit Inquiry'
+                drawerLabel:'Credit Inquiry'
             }
             
         },
         PQ: {
             screen: BlankScreen,
             navigationOptions:{
-                title:'Compliance Solutions'
+                drawerLabel:'Compliance Solutions'
             }
             
         },
         SF: {
             screen: BlankScreen,
             navigationOptions:{
-                title:'Synthetic Fraud'
+                drawerLabel:'Synthetic Fraud'
             }
             
         },
         TS: {
             screen: BlankScreen,
             navigationOptions:{
-                title:'Transactions'
+                drawerLabel:'Transactions'
             }
             
         },
@@ -61,21 +65,21 @@ const DrawerNavigator = createDrawerNavigator(
         Settings: {
             screen: BlankScreen,
             navigationOptions:{
-                title:'Account Settings'
+                drawerLabel:'Account Settings'
             }
             
         },
         PD: {
             screen: BlankScreen,
             navigationOptions:{
-                title:'Push Date to DT/TR1'
+                drawerLabel:'Push Date to DT/TR1'
             }
             
         },
         DMS: {
             screen: BlankScreen,
             navigationOptions:{
-                title:'DMS Sync'
+                drawerLabel:'DMS Sync'
             }
             
         },
@@ -88,6 +92,8 @@ const DrawerNavigator = createDrawerNavigator(
             activeTintColor: '#fff',
             activeBackgroundColor: colors.background,
         },
+        contentComponent:CustomSidebarMenu,
+        drawerWidth:Dimensions.get('window').width -80
     }
 );
 
