@@ -99,7 +99,7 @@ export default class InputField extends Component {
               </Text>
             </TouchableOpacity>
           )
-          : null }
+          : null}
         <Animated.View style={[{ transform: [{ scale: iconScale }] }, styles.checkmarkWrapper]}>
           <Icon
             name="check"

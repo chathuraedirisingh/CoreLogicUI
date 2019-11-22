@@ -18,10 +18,12 @@ import {
 
 import SignIn from './src/screens/SignIn';
 import HomePage from './src/screens/Home';
+import TabNavigator from './src/screens/TabNavigator';
+import DrawerNavigator from './src/screens/navigation/DrawerNavigator';
 
 const App = () => {
   return (
-      <HomePage/>
+      <DrawerNavigator/>
   );
 };
 

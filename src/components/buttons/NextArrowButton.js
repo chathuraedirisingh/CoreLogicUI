@@ -21,8 +21,8 @@ if (size === 'small') {
 
 export default class NextArrowButton extends Component {
   render() {
-  	const { disabled, handleNextButton } = this.props;
-  	const opacityStyle = disabled ? 0.2 : 0.6;
+    const { disabled, handleNextButton } = this.props;
+    const opacityStyle = disabled ? 0.2 : 0.6;
     return (
       <View style={styles.buttonWrapper}>
         <TouchableHighlight
