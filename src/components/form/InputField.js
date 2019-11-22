@@ -159,7 +159,7 @@ const styles = StyleSheet.create({
     right: 0,
   },
   showButtonText: {
-    color: colors.white,
+    color: colors.gray5,
     fontWeight: '700',
   },
   checkmarkWrapper: {
