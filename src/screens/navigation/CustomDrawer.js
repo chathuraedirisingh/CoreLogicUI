@@ -1,12 +1,12 @@
-import React, {Component} from 'react';
-import {View, StyleSheet, Image, Text, ScrollView} from 'react-native';
-import {Icon} from 'react-native-elements';
+import React, { Component } from 'react';
+import { View, StyleSheet, Image, Text, ScrollView, ImageBackground } from 'react-native';
+import { Icon } from 'react-native-elements';
 
 export default class CustomSidebarMenu extends Component {
   constructor() {
     super();
     //Setting up the Main Top Large Image of the Custom Sidebar
-    this.proileImage =
+    this.profileImage =
       'https://aboutreact.com/wp-content/uploads/2018/07/sample_img.png';
     //Array of the sidebar navigation option with icon and screen to navigate
     //This screens can be any screen defined in Drawer Navigator in App.js
@@ -14,52 +14,52 @@ export default class CustomSidebarMenu extends Component {
     this.items = [
       {
         navOptionThumb: 'camera',
-        navOptionName: 'First Screen',
+        navOptionName: 'ID Scan',
         screenToNavigate: 'Scan',
       },
       {
         navOptionThumb: 'image',
-        navOptionName: 'First Screen',
+        navOptionName: 'Digital Application',
         screenToNavigate: 'DA',
       },
       {
         navOptionThumb: 'build',
-        navOptionName: 'First Screen',
+        navOptionName: 'Credit Inquiry',
         screenToNavigate: 'CI',
       },
       {
         navOptionThumb: 'file-text',
-        navOptionName: 'First Screen',
+        navOptionName: 'Pre-qualifications',
         screenToNavigate: 'PQ',
       },
       {
         navOptionThumb: 'camera',
-        navOptionName: 'First Screen',
+        navOptionName: 'Compilance Solutions',
         screenToNavigate: 'SF',
       },
       {
         navOptionThumb: 'camera',
-        navOptionName: 'First Screen',
+        navOptionName: 'Synthetic Fraud',
         screenToNavigate: 'TS',
       },
       {
         navOptionThumb: 'camera',
-        navOptionName: 'First Screen',
+        navOptionName: 'Transactions',
         screenToNavigate: 'MA',
       },
       {
         navOptionThumb: 'camera',
-        navOptionName: 'First Screen',
+        navOptionName: 'Manage Alerts',
         screenToNavigate: 'Settings',
       },
       {
         navOptionThumb: 'camera',
-        navOptionName: 'First Screen',
+        navOptionName: 'Account Settings',
         screenToNavigate: 'PD',
       },
       {
         navOptionThumb: 'image',
-        navOptionName: 'Second Screen',
+        navOptionName: 'DMS Sync',
         screenToNavigate: 'DMS',
       }
     ];
@@ -68,10 +68,24 @@ export default class CustomSidebarMenu extends Component {
     return (
       <View style={styles.sideMenuContainer}>
         {/*Top Large Image */}
-        <Image
-          source={{uri: this.proileImage}}
-          style={styles.sideMenuProfileIcon}
-        />
+        <View style={styles.sideMenuProfileIcon}>
+          <ImageBackground
+            // source={{ uri: this.proileImage }}
+            source={require('../../../assets/wallpaper.png')}
+          >
+            <View style={{ flexDirection: 'row' }}>
+              <Image
+                source={require('../../../assets/agent-2.jpg')}
+                style={{ width: 70, height: 70, borderRadius: 400 / 2 }}
+              />
+              <View style={{ flexDirection: 'column' }}>
+                <Text style={{ marginLeft: 20, fontWeight: 'bold', marginTop: 10, fontSize: 18 }}>Jane Doe</Text>
+                <Text style={{ marginLeft: 20, marginTop: 5, fontSize: 15 }}>XXX-XXXX-3452</Text>
+              </View>
+            </View>
+
+          </ImageBackground>
+        </View>
         {/*Divider between Top Image and Sidebar Option*/}
         <View
           style={{
@@ -82,7 +96,7 @@ export default class CustomSidebarMenu extends Component {
           }}
         />
         {/*Setting up Navigation Options from option array using loop*/}
-        <ScrollView style={{width: '100%'}}>
+        <ScrollView style={{ width: '100%' }}>
           {this.items.map((item, key) => (
             <View
               style={{
@@ -94,9 +108,9 @@ export default class CustomSidebarMenu extends Component {
                   global.currentScreenIndex === key ? '#2196F3' : '#ffffff',
               }}
               key={key}>
-              <View style={{marginRight: 10, marginLeft: 20}}>
-                <Icon name={item.navOptionThumb} size={25} 
-                color= {global.currentScreenIndex === key ? '#ffffff' : '#2196F3'} />
+              <View style={{ marginRight: 10, marginLeft: 20 }}>
+                <Icon name={item.navOptionThumb} size={25}
+                  color={global.currentScreenIndex === key ? '#ffffff' : '#2196F3'} />
               </View>
               <Text
                 style={{
@@ -120,15 +134,17 @@ const styles = StyleSheet.create({
   sideMenuContainer: {
     width: '100%',
     height: '100%',
-    backgroundColor: '#fff',
-    alignItems: 'center',
+    // backgroundColor: '#fff',
+    // alignItems: 'center',
     paddingTop: 20,
   },
   sideMenuProfileIcon: {
-    resizeMode: 'center',
+    flexDirection: 'column-reverse',
+    // resizeMode: 'center',
     width: 150,
     height: 150,
-    marginTop: 20,
+    marginLeft: 20,
+    // marginTop: 20,
     borderRadius: 150 / 2,
   },
 });
